@@ -1,494 +1,24 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Wedding Invitation</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Cinzel', serif;
-    background: url('https://png.pngtree.com/background/20250314/original/pngtree-vibrant-traditional-indian-wedding-ceremony-decorated-with-flowers-and-artifacts-picture-image_16319627.jpg') no-repeat center center/cover;
-    min-height: 100vh;
-    overflow: auto;
-}
-
-/* 🎭 Curtain */
-.curtain {
-    position: fixed;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to bottom, #8b0000, #4b0000);
-    z-index: 9999;
-    transition: all 2s ease;
-}
-
-.left {
-    left: 0;
-    border-right: 3px solid gold;
-}
-
-.right {
-    right: 0;
-    border-left: 3px solid gold;
-}
-
-/* Open effect */
-.open .left {
-    transform: translateX(-100%);
-}
-.open .right {
-    transform: translateX(100%);
-}
-
-/* Main content hidden initially */
-.content {
-    opacity: 0;
-    transition: opacity 2s ease;
-}
-
-.open .content {
-    opacity: 1;
-}
-
-/* Dark overlay */
-.overlay {
-    background: rgba(190, 35, 162, 0.75);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 0;
-}
-
-.card {
-    width: 750px;
-    padding: 60px;
-    margin: 30px 0;
-    border: 6px double gold;
-    border-radius: 25px;
-    background: rgba(22, 213, 44, 0.85);
-    box-shadow: 0 0 40px gold;
-    text-align: center;
-    color: gold;
-    animation: zoomIn 2s ease;
-}
-
-/* title */
-.title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 60px;
-    text-shadow: 0 0 15px gold;
-}
-
-.telugu-title {
-    font-family: 'Cinzel', serif;
-    font-size: 40px;
-    text-shadow: 0 0 10px gold;
-    margin-bottom: 10px;
-}
-
-.top-title {
-    font-family: 'Cinzel', serif;
-    font-size: 22px;
-    text-shadow: 0 0 8px gold;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-}
-
-.invite-text {
-    text-align: center;
-    line-height: 1.8;
-    margin-top: 20px;
-    font-family: 'Cinzel', serif;
-}
-
-.invite-text p {
-    margin: 10px 0;
-}
-
-.invite-text .highlight {
-    color: #ffd966;
-    font-size: 22px;
-    letter-spacing: 1px;
-}
-
-.venue-label {
-    color: #ffd700;
-    font-size: 22px;
-    font-weight: bold;
-    text-shadow: 0 0 8px gold;
-}
-
-/* Names styling */
-.name {
-    font-size: 28px;
-    color: gold;
-    font-weight: bold;
-    text-shadow: 0 0 10px gold;
-}
-
-.bride {
-    color: #ffcc66;
-}
-
-.groom {
-    color: #ffd700;
-}
-
-.with {
-    font-size: 20px;
-    font-style: italic;
-    margin: 5px 0;
-}
-
-.parents {
-    font-size: 16px;
-}
-
-/* ✨ Elegant Event Section */
-.event-section {
-    text-align: center;
-    margin-top: 30px;
-    font-family: 'Cinzel', serif;
-}
-
-/* Titles */
-.event-title {
-    font-size: 26px;
-    font-weight: bold;
-    color: gold;
-    margin-top: 20px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px gold;
-}
-
-/* Details */
-.event-details {
-    font-size: 20px;
-    margin-top: 10px;
-    line-height: 1.8;
-    color: #fff8dc;
-}
-
-.event-row {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.event-card {
-    flex: 1 1 280px;
-    max-width: 320px;
-    background: rgba(0, 0, 0, 0.18);
-    border: 2px solid gold;
-    border-radius: 25px;
-    padding: 22px 24px;
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.24);
-    position: relative;
-    overflow: hidden;
-}
-
-.event-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 35%, rgba(255, 215, 0, 0.06));
-    pointer-events: none;
-}
-
-.event-card .event-title {
-    margin-top: 0;
-}
-
-.event-section .divider {
-    width: 60%;
-    height: 1.5px;
-    background: gold;
-    margin: 20px auto;
-}
-
-.names {
-    font-size: 36px;
-    margin: 25px 0;
-    letter-spacing: 3px;
-}
-
-.names span {
-    color: red;
-}
-
-.divider {
-    width: 70%;
-    height: 2px;
-    background: gold;
-    margin: 25px auto;
-}
-
-.details {
-    font-size: 20px;
-    line-height: 2;
-}
-
-.button {
-    margin-top: 30px;
-    padding: 12px 25px;
-    border: 2px solid gold;
-    color: gold;
-    text-decoration: none;
-    border-radius: 30px;
-}
-
-.button:hover {
-    background: gold;
-    color: black;
-}
-
-@keyframes zoomIn {
-    from {transform: scale(0.7); opacity: 0;}
-    to {transform: scale(1); opacity: 1;}
-}
-
-/* 🔥 Royal Rotating Frame */
-.photo-frame {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Rotating glowing ring */
-.photo-frame::before {
-    content: "";
-    position: absolute;
-    width: 170px;
-    height: 170px;
-    border-radius: 50%;
-    background: conic-gradient(gold, orange, gold, yellow, gold);
-    animation: rotate 4s linear infinite;
-    z-index: 0;
-    filter: blur(2px);
-}
-
-/* Inner circle */
-.photo-frame::after {
-    content: "";
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    background: #000;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-/* Image */
-.photo {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    z-index: 2;
-    border: 3px solid gold;
-}
-
-/* Animation */
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* 🌿 Banana Leaves */
-.leaf {
-    position: fixed;
-    top: 0;
-    width: 120px;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-    opacity: 0.9;
-}
-
-/* Left side */
-.left-leaf {
-    left: 0;
-}
-
-/* Right side */
-.right-leaf {
-    right: 0;
-    transform: scaleX(-1); /* mirror */
-}
-
-/* 📜 Scroll Box */
-.scroll-box {
-    max-width: 700px;
-    margin: 20px auto 30px;
-    padding: 20px 40px 40px 40px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #2c0000, #000);
-    border: 4px solid gold;
-    box-shadow: 0 0 30px gold;
-    text-align: center;
-    position: relative;
-    overflow: visible;
-}
-
-/* 🌸 Floral Corners */
-.scroll-box::before,
-.scroll-box::after {
-    content: "🌸";
-    position: absolute;
-    font-size: 30px;
-}
-
-.scroll-box::before {
-    top: 10px;
-    left: 15px;
-}
-
-.scroll-box::after {
-    bottom: 10px;
-    right: 15px;
-}
-
-/* 🪔 Temple Heading */
-.temple-title {
-    font-size: 28px;
-    color: gold;
-    margin-bottom: 15px;
-    text-shadow: 0 0 15px gold;
-    animation: glow 2s infinite alternate;
-}
-
-/* ✨ Glow animation */
-@keyframes glow {
-    from { text-shadow: 0 0 10px gold; }
-    to { text-shadow: 0 0 25px gold, 0 0 40px orange; }
-}
-
-/* Invite text */
-.invite-text {
-    font-size: 18px;
-    line-height: 1.8;
-}
-
-/* Names */
-.highlight-name {
-    font-size: 30px;
-    margin: 10px 0;
-    font-weight: bold;
-    color: #ffd700;
-    text-shadow: 0 0 10px gold;
-}
-
-/* "with" */
-.with-text {
-    font-style: italic;
-    margin: 10px 0;
-}
-
-/* Parents */
-.parents {
-    font-size: 16px;
-    margin-bottom: 15px;
-}
-
-/* Event titles */
-.event-title {
-    font-size: 22px;
-    margin-top: 15px;
-    color: gold;
-}
-
-/* Event details */
-.event-details {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-/* Divider */
-.divider {
-    width: 60%;
-    height: 2px;
-    background: gold;
-    margin: 20px auto;
-}
-
-/* Venue Box */
-.venue-box {
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 15px;
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid gold;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-    text-align: center;
-}
-
-/* Venue Title */
-.venue-title {
-    font-size: 20px;
-    font-weight: bold;
-    color: gold;
-    margin-bottom: 10px;
-    text-shadow: 0 0 8px gold;
-}
-
-/* Venue Details */
-.venue-details {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #fff8dc;
-}
-
-/* Invited Box */
-.invited-box {
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 15px;
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid gold;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-    text-align: center;
-}
-
-/* Invited Title */
-.invited-title {
-    font-size: 20px;
-    font-weight: bold;
-    color: gold;
-    margin-bottom: 10px;
-    text-shadow: 0 0 8px gold;
-}
-
-/* Invited Details */
-.invited-details {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #fff8dc;
-}
-</style>
 </head>
 
 <body>
 
 <!-- 🎭 Curtains -->
+
 <div class="curtain left"></div>
 <div class="curtain right"></div>
 
 <!-- 🌿 Banana Leaves -->
+
 <img src="https://i.imgur.com/8QfQZ6G.png" class="leaf left-leaf">
 <img src="https://i.imgur.com/8QfQZ6G.png" class="leaf right-leaf">
 
@@ -496,123 +26,100 @@ body {
 <div class="overlay">
 <div class="card">
 
-    <!-- 🕉 Ganesh Image -->
-    <img src="ganesh.jpg" alt="Ganesh" style="
-        width:150px;
-        height: auto;
-        display: block;
-        margin: -80px auto 20px;
-        filter: drop-shadow(0 0 20px gold) brightness(1.1);
-        border-radius: 15px;
-        border: 3px solid gold;
-        background: rgba(255, 255, 255, 0.1);
-        padding: 5px;
-        position: relative;
-        z-index: 10;
-    ">
+```
+<!-- 🕉 Ganesh Image -->
+<img src="ganesh.jpg" class="ganesh">
 
-    <div class="top-title">ఓం శ్రీ గణేశాయ న‌మః</div>
+<div class="top-title">ఓం శ్రీ గణేశాయ న‌మః</div>
+<div class="telugu-title">పొలేపల్లి వారి పెండ్లి పిలుపు</div>
 
-    <!-- Telugu Heading -->
-    <div class="telugu-title">పొలేపల్లి వారి పెండ్లి పిలుపు</div>
+<div class="scroll-box">
 
-    <div class="scroll-box">
+    <div class="temple-title">🪔 Wedding Invitation 🪔</div>
 
-        <div class="temple-title">🪔 Wedding Invitation 🪔</div>
-
-        <div class="invite-text">
-            Mr. Narasimha Murthy & Mrs. Vara Lakshmi<br>
-            request the pleasure of your company and blessings<br>
-            at the marriage of their daughter
-        </div>
-
-        <div class="highlight-name">M Naga Lakshmi</div>
-
-        <div class="with-text">with</div>
-
-        <div class="highlight-name">M Lokesh</div>
-
-        <div class="parents">
-            (S/o D.V. Munivenkatappa & M Lakshmi)
-        </div>
-
-        <!-- 🔥 Animated Royal Images -->
-        <div style="display:flex; justify-content:center; gap:50px; margin:30px 0;">
-
-            <!-- Bride -->
-            <div style="text-align:center;">
-                <div class="photo-frame">
-                    <img src="bride.jpg" class="photo">
-                </div>
-                <div style="margin-top:10px;">M నాగలక్ష్మి
-</div>
-            </div>
-
-            <!-- Center -->
-            <div style="font-size:30px; display:flex; align-items:center;">🪔</div>
-
-            <!-- Groom -->
-            <div style="text-align:center;">
-                <div class="photo-frame">
-                    <img src="groom.jpg" class="photo">
-                </div>
-                <div style="margin-top:10px;">M లోకేష్ </div>
-            </div>
-
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="event-title">Auspicious Muhurtham</div>
-        <div class="event-details">
-            Thursday, 14<sup>th</sup> May 2026<br>
-            Between 9:00 AM – 10:00 AM
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="event-title">Reception</div>
-        <div class="event-details">
-            Wednesday, 13<sup>th</sup> May 2026<br>
-            At 6:30 PM
-        </div>
-
+    <div class="invite-text">
+        Mr. Narasimha Murthy & Mrs. Vara Lakshmi<br>
+        request the pleasure of your company and blessings<br>
+        at the marriage of their daughter
     </div>
 
+    <div class="highlight-name">M Naga Lakshmi</div>
+    <div class="with-text">with</div>
+    <div class="highlight-name">M Lokesh</div>
 
+    <div class="parents">
+        (S/o D.V. Munivenkatappa & M Lakshmi)
+    </div>
 
+    <!-- Photos -->
+    <div class="couple-wrapper">
 
-
-    <div class="divider"></div>
-
-    <div class="venue-box">
-        <div class="venue-label">VENUE</div>
-        <div class="venue-details">
-            📍 Sri Lakshmi Venkateswara Swamy Sannidhi<br>
-            Srinivasa Sagara Village<br>
-            Gauribidanur<br>
-            Karnataka, India
+        <div class="person">
+            <div class="photo-frame">
+                <img src="bride.jpg" class="photo">
+            </div>
+            <div class="person-name">M నాగలక్ష్మి</div>
         </div>
+
+        <div class="center-icon">🪔</div>
+
+        <div class="person">
+            <div class="photo-frame">
+                <img src="groom.jpg" class="photo">
+            </div>
+            <div class="person-name">M లోకేష్</div>
+        </div>
+
     </div>
 
     <div class="divider"></div>
 
-    <a href="https://www.google.com/maps/search/Sri+Lakshmi+Venkateswara+Swamy+Sannidhi+Srinivasa+Sagara+Village+Gauribidanur" class="button" target="_blank" title="Sri Lakshmi Venkateswara Swamy Sannidhi, Srinivasa Sagara Village, Gauribidanur, Karnataka, India">View Location</a>
+    <div class="event-title">Auspicious Muhurtham</div>
+    <div class="event-details">
+        Thursday, 14<sup>th</sup> May 2026<br>
+        Between 9:00 AM – 10:00 AM
+    </div>
 
-    <div class="invited-box">
-        <div class="invited-title">Invited by</div>
-        <div class="invited-details">
-            Mr. Narasimha Murthy & Mrs. Vara Lakshmi<br>
-            and their family members, relatives, friends & well-wishers<br><br>
-            Ph No: 6302164151, 9966562913
-        </div>
+    <div class="divider"></div>
+
+    <div class="event-title">Reception</div>
+    <div class="event-details">
+        Wednesday, 13<sup>th</sup> May 2026<br>
+        At 6:30 PM
     </div>
 
 </div>
+
+<div class="divider"></div>
+
+<div class="venue-box">
+    <div class="venue-label">VENUE</div>
+    <div class="venue-details">
+        📍 Sri Lakshmi Venkateswara Swamy Sannidhi<br>
+        Srinivasa Sagara Village<br>
+        Gauribidanur<br>
+        Karnataka, India
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<a href="https://www.google.com/maps/search/Sri+Lakshmi+Venkateswara+Swamy+Sannidhi+Srinivasa+Sagara+Village+Gauribidanur" class="button" target="_blank">View Location</a>
+
+<div class="invited-box">
+    <div class="invited-title">Invited by</div>
+    <div class="invited-details">
+        Mr. Narasimha Murthy & Mrs. Vara Lakshmi<br>
+        and their family members, relatives, friends & well-wishers<br><br>
+        Ph No: 6302164151, 9966562913
+    </div>
+</div>
+```
+
+</div>
 </div>
 </div>
 
-<!-- 🎬 Curtain Script -->
 <script>
 window.onload = function() {
     setTimeout(() => {
