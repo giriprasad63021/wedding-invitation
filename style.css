@@ -1,92 +1,147 @@
-/* FULL PAGE BACKGROUND */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Cinzel', serif;
-    background: linear-gradient(rgba(255,153,213,0.9), rgba(255,77,166,0.9)),
-                url('https://images.unsplash.com/photo-1519741497674-611481863552');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-/* OUTER WRAPPER (full width) */
-.wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+/* Full Background */
+html, body {
+margin: 0;
+padding: 0;
+width: 100%;
+min-height: 100vh;
+font-family: 'Cinzel', serif;
+overflow-x: hidden;
+background: linear-gradient(rgba(255,153,213,0.9), rgba(255,77,166,0.9)),
+url('https://images.unsplash.com/photo-1519741497674-611481863552');
+background-size: cover;
+background-position: center;
 }
 
-/* YOUR MAIN CARD */
-.container {
-    width: 900px;   /* keep your card size */
-    max-width: 95%;
-}
-
-/* 🎬 Curtain */
+/* Curtain */
 .curtain {
-  position: fixed;
-  width: 50%;
-  height: 100%;
-  background: maroon;
-  z-index: 10;
-  transition: transform 2s ease;
+position: fixed;
+top: 0;
+width: 50%;
+height: 100%;
+background: linear-gradient(to bottom, #8b0000, #4b0000);
+z-index: 9999;
+transition: transform 2s ease;
 }
 
-.left { left: 0; }
-.right { right: 0; }
+.left { left: 0; border-right: 3px solid gold; }
+.right { right: 0; border-left: 3px solid gold; }
 
 .open .left { transform: translateX(-100%); }
 .open .right { transform: translateX(100%); }
 
-/* 💛 Title */
-.hero {
-  padding: 100px;
-  color: gold;
+.content { opacity: 0; transition: 2s; }
+.open .content { opacity: 1; }
+
+/* Banana leaves */
+.leaf {
+position: fixed;
+top: 0;
+width: 120px;
+height: 100%;
+object-fit: cover;
+z-index: 1;
 }
 
-/* 👰🤵 Couple */
-.couple {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
+.left-leaf { left: 0; }
+.right-leaf { right: 0; transform: scaleX(-1); }
+
+/* Overlay */
+.overlay {
+background: rgba(190,35,162,0.75);
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 40px 0;
 }
 
-.couple img {
-  width: 200px;
-  border-radius: 10px;
+/* Card */
+.card {
+width: 750px;
+max-width: 95%;
+padding: 60px;
+border: 6px double gold;
+border-radius: 25px;
+background: rgba(0,0,0,0.75);
+box-shadow: 0 0 40px gold;
+text-align: center;
+color: gold;
 }
 
-/* 📜 Events */
-.events {
-  margin: 50px;
+/* Ganesh */
+.ganesh {
+width:150px;
+display:block;
+margin:-80px auto 20px;
+border:3px solid gold;
+border-radius:15px;
 }
 
-/* 🗺 Map */
-.map iframe {
-  width: 80%;
-  height: 300px;
+/* Titles */
+.top-title { font-size:22px; margin-bottom:10px; }
+.telugu-title { font-size:36px; margin-bottom:20px; }
+
+.scroll-box {
+padding:20px;
+border:2px solid gold;
+border-radius:20px;
 }
 
-/* 📩 RSVP */
-.rsvp a {
-  padding: 12px 25px;
-  background: gold;
-  color: black;
-  text-decoration: none;
-  display: inline-block;
-  margin: 30px;
+.highlight-name {
+font-size:28px;
+margin:10px 0;
 }
 
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: transparent;
+.with-text { margin:10px 0; }
+
+/* Couple */
+.couple-wrapper {
+display:flex;
+justify-content:center;
+gap:40px;
+margin:30px 0;
+flex-wrap:wrap;
 }
-body {
-    overflow-x: hidden;
+
+.photo-frame {
+width:150px;
+height:150px;
+border-radius:50%;
+border:3px solid gold;
+overflow:hidden;
+}
+
+.photo {
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.center-icon {
+display:flex;
+align-items:center;
+font-size:30px;
+}
+
+.divider {
+width:60%;
+height:2px;
+background:gold;
+margin:20px auto;
+}
+
+.event-title { font-size:22px; margin-top:10px; }
+.event-details { margin-bottom:10px; }
+
+.button {
+padding:12px 25px;
+border:2px solid gold;
+color:gold;
+text-decoration:none;
+border-radius:30px;
+}
+
+.button:hover {
+background:gold;
+color:black;
 }
