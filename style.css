@@ -1,8 +1,11 @@
 html, body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    background: linear-gradient(to bottom, #ff69b4, #32cd32);
+    min-height: 100vh;
+    background-image: url("your-background-image.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* 🎬 Curtain */
