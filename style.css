@@ -1,12 +1,15 @@
 /* FULL PAGE BACKGROUND */
-html, body {
+body {
     margin: 0;
     padding: 0;
-    width: 100%;
+    font-family: 'Cinzel', serif;
+    background: linear-gradient(rgba(255,153,213,0.9), rgba(255,77,166,0.9)),
+                url('https://images.unsplash.com/photo-1519741497674-611481863552');
+    background-size: cover;
+    background-position: center;
     min-height: 100vh;
-    background: linear-gradient(to bottom, #ff9ad5, #ff4da6);
+    overflow-x: hidden;
 }
-
 /* OUTER WRAPPER (full width) */
 .wrapper {
     width: 100%;
