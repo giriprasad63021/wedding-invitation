@@ -1,15 +1,15 @@
-/* Full Background */
 html, body {
-margin: 0;
-padding: 0;
-width: 100%;
-min-height: 100vh;
-font-family: 'Cinzel', serif;
-overflow-x: hidden;
-background: linear-gradient(rgba(255,153,213,0.9), rgba(255,77,166,0.9)),
-url('https://images.unsplash.com/photo-1519741497674-611481863552');
-background-size: cover;
-background-position: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+
+    background: linear-gradient(rgba(255,153,213,0.9), rgba(255,77,166,0.9)),
+                url('https://images.unsplash.com/photo-1519741497674-611481863552');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* Curtain */
