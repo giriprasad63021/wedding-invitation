@@ -1,35 +1,38 @@
-html,
-body {
+/* 🌐 Full Page Setup */
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
+
   background-image: url("your-background-image.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* 🎬 Curtain */
+/* 🎬 Curtain (FIXED) */
 .curtain {
   position: fixed;
   top: 0;
   width: 50%;
   height: 100%;
-  background: maroon;
-  z-index: 10;
+  background: linear-gradient(to bottom, #800000, #330000);
+  z-index: 999;
   transition: transform 2s ease;
 }
 
+/* ✅ Correct starting position */
 .left {
-  left: 100%;
+  left: 0;
 }
 
 .right {
-  right:100%;
+  right: 0;
 }
 
+/* ✅ Open animation */
 .open .left {
   transform: translateX(-100%);
 }
@@ -42,17 +45,26 @@ body {
 .hero {
   padding: 100px;
   color: gold;
+  text-align: center;
 }
 
-/* Overlay */
+/* 🌸 Overlay */
 .overlay {
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
   box-sizing: border-box;
+}
+
+/* 💌 Main Card */
+.card {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+  color: black;
 }
 
 /* 👰🤵 Couple */
@@ -70,24 +82,25 @@ body {
 
 /* 📜 Events */
 .events {
-  margin: 50px;
-}
-
-.card {
-  width: 100%;
-  max-width: 1100px;
-  margin : auto ; 
-  color: black;
+  margin: 40px;
+  text-align: center;
 }
 
 /* 🗺 Map */
 .map iframe {
-  width: 80%;
+  width: 100%;
+  max-width: 800px;
   height: 300px;
   border: 0;
+  display: block;
+  margin: auto;
 }
 
 /* 📩 RSVP */
+.rsvp {
+  text-align: center;
+}
+
 .rsvp a {
   padding: 12px 25px;
   background: gold;
@@ -95,13 +108,40 @@ body {
   text-decoration: none;
   display: inline-block;
   margin: 30px;
-  border-radius: 6px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-/* 🌸 Canvas */
+.rsvp a:hover {
+  background: orange;
+}
+
+/* 🌸 Canvas Animation */
 canvas {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   z-index: -1;
+}
+
+/* 📱 Mobile Optimization */
+@media (max-width: 768px) {
+  .hero {
+    padding: 50px 20px;
+  }
+
+  .couple img {
+    width: 140px;
+  }
+
+  .events {
+    margin: 20px;
+  }
+
+  .card {
+    padding: 10px;
+  }
 }
